@@ -6,13 +6,15 @@ var webshot = require('webshot');
 
 var appRouter = function(app) {
 
-    app.get("/place", function(req, res) {
+    app.get("/screenshot", function(req, res) {
+  
+      var website = req.query.website;
+      var filename = req.query.filename;
       
-      webshot('google.com', 'temp/google.png', function(err) {
-        // screenshot now saved to google.png
+      webshot(website, 'temp/' + filename + '.png', function(err) {
+        res.end('Saved ' + website + ' as ' + filename + '.png');        
       });
       
-      res.end('saved!');
     });
 
 }

@@ -24,6 +24,9 @@ var appRouter = function(app) {
                 width: width,
                 height: height
             },
+            phantomConfig: {
+                'ignore-ssl-errors': 'true'
+            },
             renderDelay: timer
         };
 
